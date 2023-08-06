@@ -23,3 +23,5 @@ COPY ./opt/ /opt/
 
 RUN chmod 755 /opt/program/serve
 
+EXPOSE 8080
+

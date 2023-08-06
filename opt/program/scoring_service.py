@@ -4,7 +4,7 @@
 
 import gensim
 
-from .common import app_logger, settings
+from common import app_logger, settings
 
 
 class ScoringService:

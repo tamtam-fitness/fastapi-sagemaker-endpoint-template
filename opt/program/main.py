@@ -4,10 +4,10 @@ import sentry_sdk
 from fastapi import FastAPI, Response, status
 from sentry_sdk.integrations.logging import LoggingIntegration
 
-from .common import settings
-from .common.error_handle_middleware import ErrorHandlingMiddleware
-from .scoring_service import ScoringService
-from .word2vec_schema import Result, WordSimilarity
+from common import settings
+from common.error_handle_middleware import ErrorHandlingMiddleware
+from scoring_service import ScoringService
+from word2vec_schema import Result, WordSimilarity
 
 sentry_logging = LoggingIntegration(level=logging.INFO, event_level=logging.ERROR)
 if settings.ENV not in ["local", "test"]:
