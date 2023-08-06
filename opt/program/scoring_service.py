@@ -3,7 +3,6 @@
 
 
 import gensim
-
 from common import app_logger, settings
 
 
