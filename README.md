@@ -4,8 +4,6 @@ This is a template for deploying a FastAPI endpoint on AWS SageMaker.
 
 This is mainly based on [Seamless Integration: Deploying FastAPI ML Inference Code with SageMaker BYOC + Nginx](https://medium.com/@imrannaz326/seamless-integration-deploying-fastapi-ml-inference-code-with-sagemaker-byoc-nginx-6802103f7a2c).
 
-This template uses [the model for word2vec](https://drive.google.com/file/d/0ByFQ96A4DgSPUm9wVWRLdm5qbmc/view?resourcekey=0-of5Ks1fuoKNh1pEYE8uSFQ) created by [Hironsan](https://github.com/Hironsan).
-
 ### Why use Nginx
 
 Nginx serves as a high-performance reverse proxy, forwarding client requests to the appropriate backend server, such as FastAPI, enabling load balancing and distribution. 
@@ -43,10 +41,13 @@ rm -rf .git
 
 ## Setup Model
 
-```
-tar -xzvf opt/ml/model/model.tar.gz
-```
+This template uses [the model for word2vec](https://drive.google.com/file/d/0ByFQ96A4DgSPUm9wVWRLdm5qbmc/view?resourcekey=0-of5Ks1fuoKNh1pEYE8uSFQ) created by [Hironsan](https://github.com/Hironsan).
 
+You can download and unzip the model from the above link ,then put it in the following directory.
+
+```
+opt/ml/model/model.vec
+```
 
 ## Run Container
 
@@ -99,8 +100,26 @@ For testing the /ping endpoint, enter curl http://0.0.0.0:8080/ping into the con
 
 For testing the /invocations endpoint, enter curl http://0.0.0.0:8080/invocations into the console.
 
+## Deploying to AWS SageMaker
+
+```
+opt/ml/model/model.vec
+```
+
+If you want to deploy a model file to AWS SageMaker, you need to compress the model as tar.gz and upload it to S3.
+
+```
+opt/ml/model/model.tar.gz
+```
+
+Plus, you need to add ENV variables when Model creation.
+
+```
+ENV=prod 
+```
+
+
 ## References
-- 
 - [Use Your Own Inference Code with Hosting Services](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html)
 - [amazon-sagemaker-examples/advanced_functionality/scikit_bring_your_own
 /container/](https://github.com/aws/amazon-sagemaker-examples/tree/main/advanced_functionality/scikit_bring_your_own/container)
