@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  python_app:
+    build:
+        context: .
+        dockerfile: Dockerfile.dev
+    volumes:
+        - ./:/app
+    container_name: python_app
+    working_dir: /app
+    environment:
+      - PYTHONPATH=/app
+      - ENV=local
+    tty: true
+    stdin_open: true

@@ -1,0 +1,6 @@
+FROM python:3.10-buster
+
+COPY ./ ./app/
+WORKDIR /app
+RUN pip install poetry==1.5.1
+RUN poetry install

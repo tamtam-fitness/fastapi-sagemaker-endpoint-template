@@ -1,0 +1,19 @@
+name: py-ci
+
+on:
+  push:
+
+jobs:
+  py-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setup up
+        run: docker compose up -d
+      - name: make lint
+        run: make lint
+      - name: make format
+        run: make format
+      - name: run tests
+        run: make test

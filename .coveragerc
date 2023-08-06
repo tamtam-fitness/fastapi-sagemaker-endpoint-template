@@ -1,0 +1,6 @@
+[report]
+skip_covered = True
+
+omit =
+    src/main.py
+    src/common/config.py
