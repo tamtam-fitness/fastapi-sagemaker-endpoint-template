@@ -23,7 +23,7 @@ However, it functions as a process manager using Uvicorn's Gunicorn-compatible w
 
 Gunicorn listens on specified ports and IPs, forwarding communications to Uvicorn worker processes.
 
-FYI: [Server Workers - Gunicorn with Uvicorn](Server Workers - Gunicorn with Uvicorn)
+FYI: [Server Workers - Gunicorn with Uvicorn](https://fastapi.tiangolo.com/deployment/server-workers/)
 
 ## Prerequisites
 
