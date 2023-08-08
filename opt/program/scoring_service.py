@@ -3,7 +3,8 @@
 
 
 import gensim
-from common import app_logger, settings
+
+from opt.program.common import app_logger, settings
 
 
 class ScoringService:

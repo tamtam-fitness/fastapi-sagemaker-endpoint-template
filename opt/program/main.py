@@ -1,12 +1,17 @@
 import logging
 
 import sentry_sdk
-from common import settings
-from common.error_handle_middleware import ErrorHandlingMiddleware
 from fastapi import FastAPI, Response, status
-from scoring_service import ScoringService
 from sentry_sdk.integrations.logging import LoggingIntegration
-from word2vec_schema import Result, WordSimilarity
+
+from opt.program.common import settings
+from opt.program.common.error_handle_middleware import ErrorHandlingMiddleware
+from opt.program.scoring_service import ScoringService
+from opt.program.word2vec_schema import (
+    InvocationRequest,
+    InvocationResponse,
+    WordSimilarity,
+)
 
 sentry_logging = LoggingIntegration(level=logging.INFO, event_level=logging.ERROR)
 if settings.ENV not in ["local", "test"]:
@@ -33,11 +38,11 @@ def ping(response: Response) -> Response:
     return response
 
 
-@app.post("/invocations", response_model=Result)
-def transformation(word: str) -> Result:
-    result = ScoringService.predict(word)
+@app.post("/invocations", response_model=InvocationResponse)
+def transformation(invocation_req: InvocationRequest) -> InvocationResponse:
+    result = ScoringService.predict(invocation_req.word)
     word_similarities = []
     if result:
         for word, similarity in result:
             word_similarities.append(WordSimilarity(word=word, similarity=similarity))
-    return Result(word_similarities=word_similarities)
+    return InvocationResponse(word_similarities=word_similarities)

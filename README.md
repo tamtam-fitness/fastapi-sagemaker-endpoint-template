@@ -45,9 +45,16 @@ This template uses [the model for word2vec](https://drive.google.com/file/d/0ByF
 
 You can download and unzip the model from the above link ,then put it in the following directory.
 
+
 ```
-opt/ml/model/model.vec
+mkdir -p opt/ml/model/
+
+mv ~/Downloads/vector_neologd.zip opt/ml/model/model.vec
+
+unzip opt/ml/model/vector_neologd.zip -d opt/ml/model/
 ```
+
+The model file(`opt/ml/model/model.vec`) is supposed to be located in the directory.
 
 ## Run Container
 

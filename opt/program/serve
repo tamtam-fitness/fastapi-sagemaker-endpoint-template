@@ -70,7 +70,7 @@ def start_server() -> None:
             "uvicorn.workers.UvicornWorker",
             "--bind",
             "unix:/tmp/gunicorn.sock",  # Update the socket path
-            "main:app",
+            "opt.program.main:app",
         ]
     )
 

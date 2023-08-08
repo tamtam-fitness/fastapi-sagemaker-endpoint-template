@@ -7,5 +7,9 @@ class WordSimilarity(BaseModel):
     similarity: float
 
 
-class Result(BaseModel):
+class InvocationRequest(BaseModel):
+    word: str
+
+
+class InvocationResponse(BaseModel):
     word_similarities: list[WordSimilarity]
