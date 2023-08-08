@@ -9,6 +9,9 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends \
         ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
+RUN ln -s /usr/bin/python3 /usr/bin/python & \
+    ln -s /usr/bin/pip3 /usr/bin/pip
+
 ENV PATH="/opt/program:${PATH}"
 ENV BASE_DIR="/opt/"
 ENV PYTHONPATH="/opt/"
@@ -23,4 +26,3 @@ COPY ./opt/ /opt/
 RUN chmod 755 /opt/program/serve
 
 EXPOSE 8080
-ENTRYPOINT ["python3", "/opt/program/serve"]
