@@ -107,6 +107,14 @@ For testing the /ping endpoint, enter curl http://0.0.0.0:8080/ping into the con
 
 For testing the /invocations endpoint, enter curl http://0.0.0.0:8080/invocations into the console.
 
+
+## Testing Production Image Locally
+
+```
+sh serve_local.sh
+```
+
+
 ## Deploying to AWS SageMaker
 
 ```
