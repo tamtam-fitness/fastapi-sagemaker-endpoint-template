@@ -29,7 +29,10 @@ app.add_middleware(ErrorHandlingMiddleware)
 # model load
 ScoringService.get_model()
 
-
+# ref: https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html
+# To receive inference requests,
+#  the container must have a web server listening on port 8080
+#  and must accept POST requests to the /invocations endpoint.
 @app.get("/ping")
 def ping(response: Response) -> Response:
     health = ScoringService.get_model()
