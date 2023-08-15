@@ -49,7 +49,7 @@ You can download and unzip the model from the above link ,then put it in the fol
 ```
 mkdir -p opt/ml/model/
 
-mv ~/Downloads/vector_neologd.zip opt/ml/model/model.vec
+mv ~/Downloads/vector_neologd.zip opt/ml/model/
 
 unzip opt/ml/model/vector_neologd.zip -d opt/ml/model/
 ```
@@ -109,6 +109,8 @@ For testing the /invocations endpoint, enter curl http://0.0.0.0:8080/invocation
 
 
 ## Testing Production Image Locally
+
+※ You are supposed to [setup model](#setup-model) in advance .
 
 ```
 sh serve_local.sh
