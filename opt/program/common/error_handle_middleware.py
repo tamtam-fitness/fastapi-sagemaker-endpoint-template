@@ -7,12 +7,11 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from . import app_logger
 
 
-# ref: https://qiita.com/sotaheavymetal21/items/508a458a70962d822cb5
 class ErrorHandlingMiddleware(BaseHTTPMiddleware):
-    """エラーハンドリングをするミドルウェア
-    API内で発生したエラーをキャッチして処理を施す
+    """
+    Catch errors that occur in the API and apply processing.
     Args:
-        BaseHTTPMiddleware : リクエスト/レスポンスインタフェースに対するASGIミドルウェアを記述するための抽象クラス
+        BaseHTTPMiddleware : Abstract class for describing ASGI middleware for request/response interfaces.
     """
 
     async def dispatch(self, request: Request, call_next: Any) -> Response:
@@ -26,10 +25,10 @@ class ErrorHandlingMiddleware(BaseHTTPMiddleware):
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 content={
                     "error_code": e.__class__.__name__,
-                    "error_msg": "エラーが発生しました、システム管理者に問い合わせてください",
+                    "error_msg": "An error has occurred, please contact your system administrator.",
                 },
             )
-            # stacktraceも出力する
+            # Also output stacktrace.
             app_logger.exception(response)
 
         return response

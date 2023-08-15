@@ -101,12 +101,19 @@ poe test tests/{file or directory you want to test}
 ## Testing Locally
 After serving the endpoint locally by `make setup`, you can run a couple tests.
 
-For viewing the swagger api, enter http://0.0.0.0:8080/docs into your search bar.
+- For viewing the swagger api, enter http://0.0.0.0:8080/docs into your search bar.
 
-For testing the /ping endpoint, enter curl http://0.0.0.0:8080/ping into the console.
+- For testing the /ping endpoint, enter curl http://0.0.0.0:8080/ping into the console.
 
-For testing the /invocations endpoint, enter curl http://0.0.0.0:8080/invocations into the console.
-
+- For testing the /invocations endpoint, enter curl http://0.0.0.0:8080/invocations into the console.
+  ```bash
+  # Here is an example for testing the /invocations
+  curl -X 'POST' \
+    'http://localhost:8080/invocations' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '{"word": "Python"}'
+  ```
 
 ## Testing Production Image Locally
 
@@ -127,7 +134,8 @@ opt/ml/model/model.tar.gz
 
 Plus, you need to add ENV variables when Model creation.
 
-```
+```bash
+# you have to set prod.yml in opt/program/common/yaml_configs if you want to deploy it as a WebAPI
 ENV=prod 
 ```
 

@@ -47,7 +47,7 @@ ignore = [
     "ARG002", # unused-method-argument
     "INP001", # implicit-namespace-package
     "PGH004", # blanket-noqa
-    "B008", # Dependsで使用するため
+    "B008", # To use Depends
     "A002", # builtin-argument-shadowing
     "A003", # builtin-attribute-shadowing
     "PLR0913", # too-many-arguments
@@ -61,13 +61,13 @@ ignore = [
     "TRY", # tryceratops
     "COM", # flake8-commas
     "S", # flake8-bandit
-    "EM",#flake8-errmsg
+    "EM",# flake8-errmsg
     "EXE", # flake8-executable
     "ICN", # flake8-import-conventions
-    "RET",#flake8-return
-    "SIM",#flake8-simplify
+    "RET",# flake8-return
+    "SIM",# flake8-simplify
     "TCH", # flake8-type-checking
-    "PTH", #pathlibを使わないコードが多いので、除外する
+    "PTH", #m any codes do not use pathlib, so exclude it
     "ISC", #flake8-implicit-str-concat
     "N", # pep8-naming
     "PT", # flake8-pytest-style
