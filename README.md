@@ -1,5 +1,7 @@
 # FastAPI SageMaker Endpoint Template
 
+FYI: [機械学習の推論用REST APIサーバーをAmazon SageMakerで構築するまでに考えたこと](https://techblog.raksul.com/entry/2023/08/17/122804)
+
 This is a template for deploying a FastAPI endpoint on AWS SageMaker. 
 
 This is mainly based on [Seamless Integration: Deploying FastAPI ML Inference Code with SageMaker BYOC + Nginx](https://medium.com/@imrannaz326/seamless-integration-deploying-fastapi-ml-inference-code-with-sagemaker-byoc-nginx-6802103f7a2c).
