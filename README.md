@@ -34,7 +34,7 @@ FYI: [Server Workers - Gunicorn with Uvicorn](https://fastapi.tiangolo.com/deplo
 
 ## Apply template to your project
 ```
-git clone https://github.com/tamtam-fitness/python-template-based-on-docker.git <new-project>
+git clone https://github.com/tamtam-fitness/fastapi-sagemaker-endpoint-template.git <new-project>
 
 cd <new-project>
 
